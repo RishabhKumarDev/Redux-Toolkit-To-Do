@@ -10,7 +10,7 @@ import { store } from "./app/store.jsx"; // store the one we create that hold al
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Provider store={store}> 
+    <Provider store={store}>
       <App />
     </Provider>
   </StrictMode>

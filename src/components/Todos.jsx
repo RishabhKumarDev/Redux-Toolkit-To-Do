@@ -2,25 +2,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeTodo } from "../features/todo/todoSlice";
 
 const Todos = () => {
-    // here in the callback of uS the "state" represent the whole Redux Store and the "todo" is one of the slice that is regestered there 
-    // and it have direct access to the states(initialstates) and todos is one of the state in initialState.
-    // so, store-->Slice-state-> state's key;
-    const todos = useSelector(state => state.todo.todos) // useSelector helps is accessing the state out of all the state initisalized with the store's slice. 
-                                                   // this have a callback function by which we can access the states. 
-                                                   // now the var have the referance to the data from slice(the one you accessed)
-    const dispatch = useDispatch();
-    
+  // here in the callback of uS the "state" represent the whole Redux Store and the "todo" is one of the slice that is regestered there
+  // and it have direct access to the states(initialstates) and todos is one of the state in initialState.
+  // so, store-->Slice-state-> state's key;
+  const todos = useSelector((state) => state.todo.todos); // useSelector helps is accessing the state out of all the state initisalized with the store's slice.
+  // this have a callback function by which we can access the states.
+  // now the var have the referance to the data from slice(the one you accessed)
+  const dispatch = useDispatch();
+
   return (
     <>
       <div>Todos</div>
       <ul className="list-none">
         {todos.map((todo) => (
-          <li
-            className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded"
-          >
+          <li className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded">
             <div className="text-white">{todo.text}</div>
             <button
-              onClick={()=> dispatch(removeTodo(todo.id))}
+              onClick={() => dispatch(removeTodo(todo.id))}
               className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"
             >
               <svg

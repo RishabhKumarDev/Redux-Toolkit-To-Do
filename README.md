@@ -40,21 +40,27 @@
 - Payload can be a string, object, array, etc.
 - Example:
   ```js
-  dispatch(addTodo({ text, done, createdAt }))
-```
+  dispatch(addTodo({ text, done, createdAt }));
+  ```
+
+````
 ---
 ## In reducers:
 ``` js
 Object.assign(todo, action.payload)
-```
+````
+
 ---
+
 ## 🔍 5. Accessing State — useSelector
 
 - Use `useSelector` to read from Redux state.
 - Must match your store structure exactly.
 - Example:
   ```js
-  const todos = useSelector(state => state.todo.todos);
+  const todos = useSelector((state) => state.todo.todos);
+  ```
+
 ## 🔗 6. Provider — Connecting React with Redux
 
 - Wrap your app with `<Provider store={store}>` in your main file (usually `main.jsx` or `index.js`).
